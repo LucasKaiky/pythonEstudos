@@ -1,13 +1,12 @@
 import random 
 from time import sleep
-
+import pygame
 def jokenpo():
     print('\033[1;35mJO\033[m')
     sleep(0.5)
     print('\033[1;35mKEN\033[m')
     sleep(0.5)
     print('\033[1;35mPOO!!!\033[m')
-
 
 jogadas = ['PEDRA', 'PAPEL', 'TESOURA']
 score = 0
@@ -16,9 +15,12 @@ jogador = str(input('PEDRA , PAPEL ou TESOURA? ')).strip().upper()
 bot = str(random.choice(jogadas))
 
 while True:
+    pygame.init()
+    pygame.mixer.music.load('C:\\Users\\Lucas Kaiky\\Downloads\\FaculdadePython\\projetos\\jokenpo\\giorno.mp3')
+    pygame.mixer.music.play()
+    pygame.event.wait()
     while jogador not in jogadas:
         jogador = str(input('JOGADA NEGADA!!! PEDRA , PAPEL ou TESOURA? ')).strip().upper()
-    ('giorno.mp3')
     jokenpo()
     print('=-=' * 10)
     print(f'\033[1;36mO computador jogou: {bot}\033[m')
